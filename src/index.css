@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*RESET AND DEFAULT*/
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(0deg, #496849, transparent);
+}
+.scrol-hedden::-webkit-scrollbar {
+        display: none;
+      }
+input::placeholder {
+        color: #fff;
+    }
+/*==================== TAILWIND =========================================*/
+.Link-style {
+    @apply bg-button-bg-color w-full py-3 rounded-lg text-white text-center font-semibold transition ease-linear delay-100 hover:bg-button-hover-color;
+}
+.input-style {
+    @apply bg-button-bg-color text-white mb-3 rounded-lg pl-4 outline outline-white;
+}
+
+.label-style {
+    @apply flex items-center justify-center w-36 h-36 mb-5 rounded-lg bg-button-bg-color cursor-pointer text-white text-text-xs
+}
+.li-style {
+    @apply uppercase text-main-text-color font-semibold hover:underline;
+}
+
+.service-cleaning-top {
+    @apply bg-[url('./assets/images/cleaning.png')] bg-no-repeat bg-center object-cover w-full h-full flex items-center justify-center;
+}
+
+.service-electric-top {
+    @apply bg-[url('./assets/images/electric.png')] bg-no-repeat bg-center object-cover w-full h-full flex items-center justify-center;
+}
+
+.service-plumping-top {
+    @apply bg-[url('./assets/images/plumping.png')] bg-no-repeat bg-center object-cover w-full h-full flex items-center justify-center;
+}
+
+.service-title-style {
+    @apply text-white font-semibold text-text-2xl uppercase xl:text-4xl;
+}
+
+.service-subtitle-style {
+    @apply mb-5 text-text-2xl font-semibold;
+}
+
+.err-style {
+    @apply w-full h-full flex items-center justify-center flex-col;
+}
+.err-title-style {
+    @apply text-white font-semibold text-4xl  uppercase p-4 rounded-xl;
+}
+
+.err-subtitle-style {
+    @apply mb-5 mt-5 text-text-2xl font-semibold text-main-text-color;
+}
+.err-backBtn-link {
+    @apply text-white font-semibold text-text-xs absolute top-2 left-2 p-3 rounded-lg transition ease-linear delay-100;
+}
+
+.about-top {
+    @apply bg-fixed scrol-hedden overflow-auto bg-[url('./assets/images/aboutbg.jpg')] bg-no-repeat bg-cover bg-center object-cover h-80 w-full flex items-end text-white mt-20 sm:h-80 md:h-128 md:mt-0 lg:h-128 lg:mt-0 xl:h-128 xl:mt-0;
+}
+
+.office-backBtn-link {
+    @apply text-white font-semibold text-text-xs absolute top-5 right-5 p-3 rounded-lg transition ease-linear delay-100;
+}
+.disabled-input-style {
+    @apply text-main-text-color mb-3 rounded-lg pl-4;
+}
+
+
+/*to adaptive*/
+.employers-card {
+    @apply w-full  mr-0 mb-3 border-2 rounded-lg sm:w-sm-card sm:mr-3 md:w-md-card md:mr-3 lg:w-lg-card lg:mr-3 xl:h-full xl:mr-3
+}
+
+.catalogs {
+    @apply w-full h-screen justify-start items-start sm:w-full sm:h-screen md:w-full flex-wrap md:h-screen lg:w-1/3 lg:h-128 xl:w-1/3 xl:h-128
+}
