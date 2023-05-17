@@ -1,19 +1,29 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchSpecialists } from '../../store/cleanSlice'
 import { LoadingPage } from "../../page/LoadingPage"
 import { Header } from "../header"
 import { HireBtn } from "../buttons"
 
 export const Clean = () => {
-    const [getSpecialist, setGetSpecialist] = useState()
-    const MockApiUrl = "https://644cde8ecfdddac97097dc42.mockapi.io/clean"
+
+  const dispatch = useDispatch()
+  const { getSpecialist, isLoading, error } = useSelector(
+    (state) => state.clean
+  )
   
-    useEffect(() => {
-      fetch(MockApiUrl)
-        .then((res) => res.json())
-        .then((data) => {
-          setGetSpecialist(data)
-        })
-    }, [])
+  useEffect(() => {
+    dispatch(fetchSpecialists())
+  }, [dispatch])
+
+  if (isLoading) {
+    return <LoadingPage />
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+
     return (
       <>
           <Header />
@@ -21,9 +31,7 @@ export const Clean = () => {
           Список Специалистов
         </h1>
         <div className="flex flex-wrap mt-5">
-          {!getSpecialist ? (
-            <LoadingPage />
-          ) : (
+          {getSpecialist &&
             getSpecialist.map((specialist) => (
               <div
                 key={specialist.id}
@@ -55,8 +63,8 @@ export const Clean = () => {
                 </div>
               </div>
             ))
-          )}
+          }
         </div>
       </>
-    );
+    )
 }

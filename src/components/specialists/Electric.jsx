@@ -1,20 +1,28 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { LoadingPage } from "../../page/LoadingPage"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchSpecialists } from "../../store/electricSlice"
 import { Header } from "../header"
 import { HireBtn } from "../buttons"
 
 export const Electric = () => {
-    
-    const [getSpecialist, setGetSpecialist] = useState()
-    const MockApiUrl = "https://645c9df7e01ac610588e38eb.mockapi.io/electric"
+  const dispatch = useDispatch()
+  const { getSpecialist, isLoading, error } = useSelector(
+    (state) => state.electric
+  )
   
-    useEffect(() => {
-      fetch(MockApiUrl)
-        .then((res) => res.json())
-        .then((data) => {
-          setGetSpecialist(data)
-        })
-    }, [])
+  useEffect(() => {
+    dispatch(fetchSpecialists())
+  }, [dispatch])
+
+  if (isLoading) {
+    return <LoadingPage />
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+
     return (
       <>
           <Header />
@@ -22,9 +30,7 @@ export const Electric = () => {
           Список Специалистов
         </h1>
         <div className="flex flex-wrap mt-5">
-          {!getSpecialist ? (
-            <LoadingPage />
-          ) : (
+          {getSpecialist &&
             getSpecialist.map((specialist) => (
               <div
                 key={specialist.id}
@@ -56,8 +62,8 @@ export const Electric = () => {
                 </div>
               </div>
             ))
-          )}
+          }
         </div>
       </>
-    );
+    )
 }

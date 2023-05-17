@@ -31,17 +31,17 @@ function App() {
         <div className="container xl m-auto bg-mainbg h-full">
           <Routes>
             <Route path="/" element={<ToEnterPage />} />
-            <Route path="/home" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/*" element={<NotfoundPage />} />
-            <Route path="/about" element={<AboutPage />} />
             <Route path="/clean" element={<Clean />} />
             <Route path="/electric" element={<Electric />} />
             <Route path="/plumbing" element={<Plumbing />} />
-            <Route path="/office" element={<Office />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/office" element={<Office/>}/>
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/*" element={<NotfoundPage />} />
           </Routes>
         </div>
       ) : (

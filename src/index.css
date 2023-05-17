@@ -31,7 +31,7 @@ input::placeholder {
     @apply flex items-center justify-center w-36 h-36 mb-5 rounded-lg bg-button-bg-color cursor-pointer text-white text-text-xs
 }
 .li-style {
-    @apply uppercase text-main-text-color font-semibold hover:underline;
+    @apply uppercase text-main-text-color font-semibold hover:underline mr-2;
 }
 
 .service-cleaning-top {
@@ -77,6 +77,16 @@ input::placeholder {
 }
 .disabled-input-style {
     @apply text-main-text-color mb-3 rounded-lg pl-4;
+}
+
+.office-form {
+    @apply flex flex-col w-full px-3 md:w-3/4 lg:w-1/2 xl:w-1/2 m-auto;
+}
+.office-img {
+    @apply w-[200px] h-[200px] rounded-lg m-auto md:w-[350px] md:h-[350px];
+}
+.office-btn {
+    @apply bg-button-bg-color text-white rounded-lg py-3 md:text-text-2xl hover:bg-button-hover-color mb-3;
 }
 
 

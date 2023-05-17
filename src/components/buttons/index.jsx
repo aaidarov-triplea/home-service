@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
 
 export const HireBtn = ({ phoneNumber }) => {
-  const [hire, setHire] = useState()
 
   const handleHire = () => {
     window.location.href = `telegram://${phoneNumber}`
